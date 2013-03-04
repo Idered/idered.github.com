@@ -5,7 +5,8 @@ slug: create-custom-twitter-share-button
 title: Create custom Twitter share button
 categories:
 - Web Development
-tag: php
+tags:
+- php
 meta:
 ---
 
@@ -13,9 +14,9 @@ Default Twitter button doesn't look bad though there is no way to change it back
 
 	<a href="#" class="btn btn-counter" data-count="0">Tweet it</a>
 
-This post is not about html and css so we'll use [button](http://designitcodeit.com/i/9) that I've created some time ago, it's perfect for this. {{more}}
+This post is not about html and css so we'll use [button](http://designitcodeit.com/i/9) that I've created some time ago, it's perfect for this.
 
-### Getting number of tweets
+## Getting number of tweets
 To get number of tweets, a simple request to this url `http://urls.api.twitter.com/1/urls/count.json?url=URL_HERE` is enough:
 
 
@@ -35,7 +36,7 @@ We can do that either by PHP or JavaScript, this time we'll use PHP.
 		return $result->count;
 	}
 
-### Creating button
+## Creating button
 Let's create another function that will display our button:
 
 	function tweet($url, $text = '', $placeholder = 'Tweet')
@@ -49,7 +50,7 @@ Let's create another function that will display our button:
 
 Now it's easy to display Twitter share button anywhere on website, just write `tweet('YOUR_URL', 'YOUR_TEXT')`
 
-### Let's get it even further
+## Let's get it even further
 Those two function doesn't look bad though it's better to store them in some class:
 
 	class ShareButton

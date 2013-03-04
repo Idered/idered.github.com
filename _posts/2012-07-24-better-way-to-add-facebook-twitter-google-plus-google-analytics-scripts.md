@@ -5,11 +5,13 @@ slug: better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts
 title: Better way to add Facebook, Twitter, Google Plus and any other external scripts
 categories:
 - Web Development
-tag: javascript, snippet
+tags:
+- javascript
+- snippet
 meta:
 ---
 
-Every time I've to embed facebook, twitter or any other external script on website, it takes longer than it should and my code get messy. But no longer, with this code it's easier to embed scripts from external source. {{more}}
+Every time I've to embed facebook, twitter or any other external script on website, it takes longer than it should and my code get messy. But no longer, with this code it's easier to embed scripts from external source.
 
 	<script type="text/javascript">
 	  var scripts = {

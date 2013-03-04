@@ -5,7 +5,10 @@ slug: send-forms-using-ctrl-enter
 title: Send forms using Ctrl + Enter
 categories:
 - Web Development
-tag: javascript, snippet, ux
+tags:
+- javascript
+- snippet
+- ux
 meta:
 ---
 
@@ -22,5 +25,3 @@ Many times, after I finish writting my comment or post, I press `Ctrl + Enter` a
 			return false;
 		}
 	});
-
-{{more}}

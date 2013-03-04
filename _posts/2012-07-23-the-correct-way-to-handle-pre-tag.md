@@ -5,21 +5,23 @@ slug: the-correct-way-to-handle-pre-tag
 title: The correct way to handle pre tag
 categories:
 - Web Development
-tag: javascript, snippet
+tags:
+- javascript
+- snippet
 meta:
 ---
 
 There are two things that we have to remember when we want embed some code on our website: **it should be highlighted** and **easy to copy**.{{more}}
 
-### Adding code
+## Adding code
 To add code, we'll use this structure:
 
 	<pre class="prettyprint"><code>...</code></pre>
 
-### Code highlighting
+## Code highlighting
 This is easy, we can use [Google Code Prettify](http://code.google.com/p/google-code-prettify/), it's easy to setup and quite universal. We just have to add some CSS and JavaScript, it's all well described [here](http://google-code-prettify.googlecode.com/svn/trunk/README.html).
 
-### Adding "copy" functionality
+## Adding "copy" functionality
 The idea is simple:
 > When user clicks on code then it is replaced with textarea where the code itself is added and selected. When the textarea loses focus, it is reverted to original state.
 

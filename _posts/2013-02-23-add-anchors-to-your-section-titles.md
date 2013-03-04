@@ -5,7 +5,9 @@ slug: add-anchors-to-your-section-titles
 title: Add anchors to your section titles
 categories:
 - Web Development
-tag: html, ux
+tags:
+- html
+- ux
 meta:
 ---
 
@@ -15,7 +17,7 @@ Usualy we link `<a>` tag to an element using `id` attribute but this isn't suppo
 
 	<a name="about" href="#about">About</a>
 
-{{more}}It's a link which points to itself. It's a section title so you also should wrap it in an `h2` or `h3` tag.
+It's a link which points to itself. It's a section title so you also should wrap it in an `h2` or `h3` tag.
 
 Optionaly we can add some style for anchor links:
 

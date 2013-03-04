@@ -5,11 +5,13 @@ slug: grouped-logging
 title: Grouped logging
 categories:
 - Web Development
-tag: javascript, workflow
+tags:
+- javascript
+- workflow
 meta:
 ---
 
-Lets say that we have some `console.log` in our code, some of them are related to contact form other are related to user actions. We can split those logs into 2 sections: `contact-form` and `user-actions`. When we open our website, console displays all of those messages at once but we only want to debug user actions so what do we do? - remove console.log in contact form section? nope, there's better option - grouped logging. {{more}}
+Lets say that we have some `console.log` in our code, some of them are related to contact form other are related to user actions. We can split those logs into 2 sections: `contact-form` and `user-actions`. When we open our website, console displays all of those messages at once but we only want to debug user actions so what do we do? - remove console.log in contact form section? nope, there's better option - grouped logging.
 
 At first lets write down all section names and create a var that will hold only those we want to debug:
 

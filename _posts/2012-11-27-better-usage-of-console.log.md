@@ -5,11 +5,12 @@ slug: better-usage-of-console.log
 title: Better usage of console.log
 categories:
 - Web Development
-tag: javascript
+tags:
+- javascript
 meta:
 ---
 
-No one likes to remove console.log from source after finished development but there's a good solution for this. We have to set global variable and use custom wrapper function for console.log. {{more}}
+No one likes to remove console.log from source after finished development but there's a good solution for this. We have to set global variable and use custom wrapper function for console.log.
 
 	var debug = true,
 	    _log = function() {
