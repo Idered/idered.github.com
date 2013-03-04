@@ -31,27 +31,27 @@ To accomplish this, we'll use [jQuery](http://jquery.com). Okey, now let's write
 	$("pre").delegate("code", "click", function() {
 		// Code
 	});
-`Each time we click on code tag that is in pre tag, the function is called`
+Each time we click on code tag that is in pre tag, the function is called
 
 	var $code = $(this),
 		$pre  = $(this).parent(),
 		$clone= $code.clone(),
 		text  = $code.text(),
 		height= $code.outerHeight();
-`Now we're just setting some variables`
+Now we're just setting some variables
 
 	$code.replaceWith($('<textarea/>'));
 
 	var $textarea = $pre.children('textarea');
-`We're replacing code tag with textarea and add it to variable`
+We're replacing code tag with textarea and add it to variable
 
 	$textarea.height(height).val(text).select();
-`We're setting height for textarea as it was for code tag, add text and select it.`
+We're setting height for textarea as it was for code tag, add text and select it.
 
 	$textarea.one('blur', function() {
 	  $textarea.replaceWith($clone);
 	});
-`When textarea loses it focus, everything is reverted back`
+When textarea loses it focus, everything is reverted back
 
 At the end, code will look like this:
 
