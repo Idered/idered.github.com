@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+	<!-- @see developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching -->
+	<link rel="dns-prefetch" href="//p.twitter.com">
+	<link rel="dns-prefetch" href="//cdn.api.twitter.com">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//platform.twitter.com">
+
+	<title>Grouped logging</title>
+
+	<link rel="stylesheet" href="/ui/style.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+	<link rel="shortcut icon" href="/favicon.gif">
+    <link rel="apple-touch-icon-precomposed" href="/favicon.gif">
+    <meta name="apple-mobile-web-app-title" content="csswizardry">
+    <meta name="description" content="">
+
+	<!-- @see codular.com/google-author-image -->
+	<link rel="author" href="https://plus.google.com/116964578938339291040/posts">
+
+	<!-- @see ogp.me -->
+	<meta property="og:title" content="Grouped logging" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="" />
+	<meta property="og:url" content="/2013/02/grouped-logging">
+
+	<!-- @see dev.twitter.com/docs/cards -->
+	<meta property="twitter:title" content="Grouped logging">
+	<meta property="twitter:creator" content="@Idered">
+	<meta property="twitter:card" content="summary">
+	<meta property="twitter:description" content="">
+	<meta property="twitter:url" content="/2013/02/grouped-logging">
+</head>
+<body class="page--post">
+
+
+<div class="main wrapper">
+
+	<aside class="sidebar">
+
+		<a href="/" rel="index" class="site-name fx--opacity">
+			Kasper.<span>Mikiewicz</span>
+		</a>
+		<!-- /.site-name -->
+
+		<ul class="nav nav--stacked site-nav">
+			<li class="site-nav__about"><a href="/about-me">About me</a></li>
+			<li class="site-nav__projects"><a href="/projects">Projects</a></li>
+			<li class="site-nav__contact"><a href="/contact">Contact</a></li>
+		</ul>
+		<!-- /.nav.site-nav -->
+
+		<p class="sidebar__about-me">Hello, I’m Kasper. I’m 21 years old <b>designer</b>, <b>developer</b> and <b>writer</b> from Poland. I like to <a href="http://twitter.com/Idered">tweet</a>, <a href="http://idered.pl/archive">write</a>, <a href="http://dribbble.com/Idered">design</a> and <a href="http://github.com/Idered">share my code</a>.</p>
+
+		<p class="footer">
+			2013 &copy; <a href="http://twitter.com/Idered">Kasper Mikiewicz</a>.
+		</p>
+
+	</aside>
+	<!-- /.sidebar -->
+
+	<div class="content">
+		<article class="post">
+
+    <h1 class="post__title">Grouped logging</h1>
+
+    <p>Lets say that we have some <code>console.log</code> in our code, some of them are related to contact form other are related to user actions. We can split those logs into 2 sections: <code>contact-form</code> and <code>user-actions</code>. When we open our website, console displays all of those messages at once but we only want to debug user actions so what do we do? - remove console.log in contact form section? nope, there's better option - grouped logging.</p>
+
+<p>At first lets write down all section names and create a var that will hold only those we want to debug:</p>
+
+<pre><code>// Values: 'contact-form', user-actions'
+var debug = ['user-actions']
+</code></pre>
+
+<p>Looks good, this way we won't have to look for the names of groups. Now we only have to create a function that will group logs, here's a code for it:</p>
+
+<pre><code>var log = function() {
+    var args = [],
+        first;
+
+    // clone arguments
+    Array.prototype.push.apply(args, arguments);
+
+    // we need at least 2 arguments: group name and variable to log
+    if (args.length &gt; 1) {
+        // get group name
+        first = args.shift();
+
+        // look for group name in debug array
+        for (var i = 0; i &lt; debug.length; i++)
+            if (first === debug[i])
+                console.log.apply(console, args);
+
+    } else {
+        // We have only 1 argument, there's no group name
+        console.log.apply(console, args);
+    }
+};
+</code></pre>
+
+<p>Here's how to use it:</p>
+
+<pre><code>// This won't be logged because contact-form isn't in debug array
+log('contact-form', 'Response: ', response);
+// Response: {status:  1}
+
+//  This will be logged in console
+log('user-action', 'Action: ', action);
+// Action: click
+</code></pre>
+
+<p>That's all folks, thanks for reading!</p>
+
+
+</article>
+	</div>
+	<!-- /.content -->
+
+</div>
+<!-- /.main  -->
+
+<script>
+	var scripts = {
+		'twitter-wjs'   : '//platform.twitter.com/widgets.js',
+		'analytics'     : ('https:'==location.protocol?'//ssl':'//www') + '.google-analytics.com/ga.js'
+	}, script, _gaq=[['_setAccount','UA-18366146-6'],['_trackPageview']];
+
+	for (var id in scripts) {
+		script = document.createElement('script'); script.src = scripts[id];
+		script.id = id;script.type = 'text/javascript'; script.async = true;
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+	}
+</script>
+<script src="/ui/js/jquery.js"></script>
+<script src="/ui/js/plugins.js"></script>
+<script src="/ui/js/script.js"></script>
+</body>
+</html>
