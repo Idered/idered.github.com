@@ -9,4 +9,7 @@ permalink: /contact/
 
 Hey, I'm curently not available for any freelance project but if you need, you can drop me an email [here][1]. Thanks.
 
+You can also [tweet][2] to me on twitter.
+
  [1]: mailto:ideredpl@gmail.com
+ [2]: http://twitter.com/idered

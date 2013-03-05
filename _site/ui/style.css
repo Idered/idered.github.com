@@ -32,10 +32,6 @@ audio:not([controls]) {
 	display: none;
 }
 
-h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
-}
 
 abbr[title] {
 	border-bottom: 1px dotted;
@@ -54,6 +50,9 @@ hr {
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 	height: 0;
+	border: 0;
+	border-top: 1px solid #dfdfdf;
+	margin: 1.5em 0;
 }
 
 mark {
@@ -204,7 +203,7 @@ html {
 }
 
 body {
-	background: #fff url(img/stripes--horizontal.png) repeat-x top left;
+	background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAADBAMAAAAQBcvvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9QTFRFP7ivf8ev97wF/oF6/r+XSqD0uQAAABxJREFUGNNjZCAABCmUVyIg/56APBPDIAeD3oEAvwEBOQI0QIcAAAAASUVORK5CYII=) repeat-x top left;
 	margin: 0;
 	padding-top: 3px;
 }
@@ -329,6 +328,11 @@ a:hover {
 h1, h2, h3,
 h4, h5, h6 {
 	font-weight: normal;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
 }
 
 
@@ -559,7 +563,8 @@ ol.linenums li {
 	border-left-width: 3px;
 	border-left-style: solid;
 	padding-left: 17px;
-	line-height: 40px;
+	height: 2.5em;
+	line-height: 2.5em;
 	display: block;
 	color: #777777;
 	-webkit-transition: .25s ease;
@@ -653,6 +658,11 @@ ol.linenums li {
 	margin: 0;
 }
 
+.posts + .sidebar__about {
+	border-top: 0;
+	margin-top: 0;
+}
+
 /**
  * Pagination
  */
@@ -681,15 +691,19 @@ ol.linenums li {
 	margin-top: 0;
 }
 
+
+.post__share .twitter-share-button {
+	display: block;
+}
+
 .post__tags {
-	border-top: 1px solid #dfdfdf;
-	padding: 2em 0;
-	margin: 0;
 	list-style-type: none;
+	padding-left: 0;
 }
 
 .post__tags li {
-	float: left;
+	display: inline-block;
+	vertical-align: top;
 	margin-right: 1em;
 }
 
@@ -768,6 +782,8 @@ ol.linenums li {
 	/* About section
 	\*------------------------------------*/
 	.sidebar__about {
+		margin-top: 1.5em;
+		padding: .5em 0;
 		border-top: 1px solid #dfdfdf;
 	}
 
@@ -826,15 +842,10 @@ ol.linenums li {
 		padding: .5em 1em;
 		text-decoration: none;
 	}
+
 }
 
 @media (max-width: 480px) {
-
-	/* About section
-	\*------------------------------------*/
-	.sidebar__about {
-		padding: 1em;
-	}
 
 	/* Pagination
 	\*------------------------------------*/

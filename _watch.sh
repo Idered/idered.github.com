@@ -1,5 +1,7 @@
 #!/bin/sh
 
-jekyll --server --auto
+jekyll
+
+git push
 
 exit 0

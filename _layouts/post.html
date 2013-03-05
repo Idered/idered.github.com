@@ -8,7 +8,13 @@ page-class: page--post
 
 	{{ content }}
 
-	<p><a href="https://twitter.com/share" class="twitter-share-button" data-text="{{page.title}}">Tweet</a></p>
+	<hr>
+
+	<p class="post__share">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="{{page.title}}">Tweet</a>
+	</p>
+
+	<hr>
 
 	<ul class="post__tags">
 		{% for tag in page.tags %}
