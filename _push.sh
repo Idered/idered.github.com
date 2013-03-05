@@ -7,6 +7,6 @@ git update-ref refs/heads/master $(echo 'Add commit message here!' | git commit-
 
 git checkout master
 
-git push
+git push origin master
 
 exit 0
