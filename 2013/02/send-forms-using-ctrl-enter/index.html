@@ -10,7 +10,7 @@
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//platform.twitter.com">
 
-	<title>Kasper Mikiewicz - Front-End developer, designer and writer</title>
+	<title>Send forms using Ctrl + Enter</title>
 
 	<link rel="stylesheet" href="/ui/style.css">
 
@@ -24,19 +24,19 @@
 	<link rel="author" href="https://plus.google.com/116964578938339291040/posts">
 
 	<!-- @see ogp.me -->
-	<meta property="og:title" content="Kasper Mikiewicz - Front-End developer, designer and writer" />
+	<meta property="og:title" content="Send forms using Ctrl + Enter" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="" />
-	<meta property="og:url" content="/index.html">
+	<meta property="og:url" content="/2013/02/send-forms-using-ctrl-enter">
 
 	<!-- @see dev.twitter.com/docs/cards -->
-	<meta property="twitter:title" content="Kasper Mikiewicz - Front-End developer, designer and writer">
+	<meta property="twitter:title" content="Send forms using Ctrl + Enter">
 	<meta property="twitter:creator" content="@Idered">
 	<meta property="twitter:card" content="summary">
 	<meta property="twitter:description" content="">
-	<meta property="twitter:url" content="/index.html">
+	<meta property="twitter:url" content="/2013/02/send-forms-using-ctrl-enter">
 </head>
-<body class="page--home">
+<body class="page--post">
 
 
 <div class="main wrapper">
@@ -74,55 +74,29 @@
 	<!-- /.sidebar -->
 
 	<div class="content">
-		<ul class="posts">
-	
-	<li>
-		<h2 class="post__title"><a href="/2013/02/grouped-logging">Grouped logging</a></h2>
-		<div class="post__date">27 February, 2013</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2013/02/send-forms-using-ctrl-enter">Send forms using Ctrl + Enter</a></h2>
-		<div class="post__date">25 February, 2013</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2013/02/add-anchors-to-your-section-titles">Add anchors to your section titles</a></h2>
-		<div class="post__date">23 February, 2013</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2012/11/better-usage-of-console.log">Better usage of console.log</a></h2>
-		<div class="post__date">27 November, 2012</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2012/07/better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts">Better way to add Facebook, Twitter, Google Plus and any other external scripts</a></h2>
-		<div class="post__date">24 July, 2012</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2012/07/the-correct-way-to-handle-pre-tag">The correct way to handle pre tag</a></h2>
-		<div class="post__date">23 July, 2012</div>
-	</li>
-	
-</ul>
-<!-- /.posts -->
+		<article class="post">
 
-<ul class="nav  pagination">
-	<li class="pagination__prev">
-		
-			Previous
-		
-	</li><!--
+	<h1 class="post__title">Send forms using Ctrl + Enter</h1>
 
- --><li class="pagination__next">
-		
-			<a href="/page2">Next</a>
-		
-	</li>
-</ul>
-<!-- /.pagination -->
+	<p>Many times, after I finish writting my comment or post, I press <code>Ctrl + Enter</code> and ... nothing. That's too bad, form should be sent after I press that shortcut but nothing happens. Here's a snippet which will help you add this function for your forms:</p>
+
+<pre><code>var isCtrl = false;
+
+$('textarea, input').keyup(function(e) {
+    if (e.which == 17) isCtrl = false;
+}).keydown(function(e) {
+    if (e.which == 17) isCtrl = true;
+    if (e.which == 13 &amp;&amp; isCtrl === true) {
+        $(this).closest('form').submit();
+        return false;
+    }
+});
+</code></pre>
+
+
+	<p><a href="https://twitter.com/share" class="twitter-share-button" data-text="Send forms using Ctrl + Enter">Tweet</a></p>
+
+</article>
 	</div>
 	<!-- /.content -->
 

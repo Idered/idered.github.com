@@ -1,9 +1,3 @@
----
-author:
- name: Kasper Mikiewicz
- username: Idered
- gplus: 116964578938339291040
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +10,7 @@ author:
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//platform.twitter.com">
 
-	<title>{{page.title}}</title>
+	<title>Grouped logging</title>
 
 	<link rel="stylesheet" href="/ui/style.css">
 
@@ -27,22 +21,22 @@ author:
     <meta name="description" content="">
 
 	<!-- @see codular.com/google-author-image -->
-	<link rel="author" href="https://plus.google.com/{{page.author.gplus}}/posts">
+	<link rel="author" href="https://plus.google.com/116964578938339291040/posts">
 
 	<!-- @see ogp.me -->
-	<meta property="og:title" content="{{page.title}}" />
+	<meta property="og:title" content="Grouped logging" />
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content="{{page.description}}" />
-	<meta property="og:url" content="{{page.url}}">
+	<meta property="og:description" content="" />
+	<meta property="og:url" content="/2013/02/grouped-logging">
 
 	<!-- @see dev.twitter.com/docs/cards -->
-	<meta property="twitter:title" content="{{page.title}}">
-	<meta property="twitter:creator" content="@{{page.author.username}}">
+	<meta property="twitter:title" content="Grouped logging">
+	<meta property="twitter:creator" content="@Idered">
 	<meta property="twitter:card" content="summary">
-	<meta property="twitter:description" content="{{page.description}}">
-	<meta property="twitter:url" content="{{page.url}}">
+	<meta property="twitter:description" content="">
+	<meta property="twitter:url" content="/2013/02/grouped-logging">
 </head>
-<body class="{{page.page-class}}">
+<body class="page--post">
 
 
 <div class="main wrapper">
@@ -68,7 +62,7 @@ author:
 
 			<!-- @see dev.twitter.com/docs/follow-button -->
 			<p>
-				<a href="https://twitter.com/{{page.author.username}}" class="twitter-follow-button" data-show-count="true">Follow @{{page.author.username}}</a>
+				<a href="https://twitter.com/Idered" class="twitter-follow-button" data-show-count="true">Follow @Idered</a>
 			</p>
 		</div>
 
@@ -80,7 +74,61 @@ author:
 	<!-- /.sidebar -->
 
 	<div class="content">
-		{{content}}
+		<article class="post">
+
+	<h1 class="post__title">Grouped logging</h1>
+
+	<p>Lets say that we have some <code>console.log</code> in our code, some of them are related to contact form other are related to user actions. We can split those logs into 2 sections: <code>contact-form</code> and <code>user-actions</code>. When we open our website, console displays all of those messages at once but we only want to debug user actions so what do we do? - remove console.log in contact form section? nope, there's better option - grouped logging.</p>
+
+<p>At first lets write down all section names and create a var that will hold only those we want to debug:</p>
+
+<pre><code>// Values: 'contact-form', user-actions'
+var debug = ['user-actions']
+</code></pre>
+
+<p>Looks good, this way we won't have to look for the names of groups. Now we only have to create a function that will group logs, here's a code for it:</p>
+
+<pre><code>var log = function() {
+    var args = [],
+        first;
+
+    // clone arguments
+    Array.prototype.push.apply(args, arguments);
+
+    // we need at least 2 arguments: group name and variable to log
+    if (args.length &gt; 1) {
+        // get group name
+        first = args.shift();
+
+        // look for group name in debug array
+        for (var i = 0; i &lt; debug.length; i++)
+            if (first === debug[i])
+                console.log.apply(console, args);
+
+    } else {
+        // We have only 1 argument, there's no group name
+        console.log.apply(console, args);
+    }
+};
+</code></pre>
+
+<p>Here's how to use it:</p>
+
+<pre><code>// This won't be logged because contact-form isn't in debug array
+log('contact-form', 'Response: ', response);
+// Response: {status:  1}
+
+//  This will be logged in console
+log('user-action', 'Action: ', action);
+// Action: click
+</code></pre>
+
+<p>That's all folks, thanks for reading!</p>
+
+
+	<p><a href="https://twitter.com/share" class="twitter-share-button" data-text="Grouped logging">Tweet</a></p>
+
+</article>
 	</div>
 	<!-- /.content -->
 

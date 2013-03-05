@@ -10,7 +10,7 @@
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//platform.twitter.com">
 
-	<title>Kasper Mikiewicz - Front-End developer, designer and writer</title>
+	<title>Add anchors to your section titles</title>
 
 	<link rel="stylesheet" href="/ui/style.css">
 
@@ -24,19 +24,19 @@
 	<link rel="author" href="https://plus.google.com/116964578938339291040/posts">
 
 	<!-- @see ogp.me -->
-	<meta property="og:title" content="Kasper Mikiewicz - Front-End developer, designer and writer" />
+	<meta property="og:title" content="Add anchors to your section titles" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description" content="" />
-	<meta property="og:url" content="/index.html">
+	<meta property="og:url" content="/2013/02/add-anchors-to-your-section-titles">
 
 	<!-- @see dev.twitter.com/docs/cards -->
-	<meta property="twitter:title" content="Kasper Mikiewicz - Front-End developer, designer and writer">
+	<meta property="twitter:title" content="Add anchors to your section titles">
 	<meta property="twitter:creator" content="@Idered">
 	<meta property="twitter:card" content="summary">
 	<meta property="twitter:description" content="">
-	<meta property="twitter:url" content="/index.html">
+	<meta property="twitter:url" content="/2013/02/add-anchors-to-your-section-titles">
 </head>
-<body class="page--home">
+<body class="page--post">
 
 
 <div class="main wrapper">
@@ -74,55 +74,44 @@
 	<!-- /.sidebar -->
 
 	<div class="content">
-		<ul class="posts">
-	
-	<li>
-		<h2 class="post__title"><a href="/2013/02/grouped-logging">Grouped logging</a></h2>
-		<div class="post__date">27 February, 2013</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2013/02/send-forms-using-ctrl-enter">Send forms using Ctrl + Enter</a></h2>
-		<div class="post__date">25 February, 2013</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2013/02/add-anchors-to-your-section-titles">Add anchors to your section titles</a></h2>
-		<div class="post__date">23 February, 2013</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2012/11/better-usage-of-console.log">Better usage of console.log</a></h2>
-		<div class="post__date">27 November, 2012</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2012/07/better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts">Better way to add Facebook, Twitter, Google Plus and any other external scripts</a></h2>
-		<div class="post__date">24 July, 2012</div>
-	</li>
-	
-	<li>
-		<h2 class="post__title"><a href="/2012/07/the-correct-way-to-handle-pre-tag">The correct way to handle pre tag</a></h2>
-		<div class="post__date">23 July, 2012</div>
-	</li>
-	
-</ul>
-<!-- /.posts -->
+		<article class="post">
 
-<ul class="nav  pagination">
-	<li class="pagination__prev">
-		
-			Previous
-		
-	</li><!--
+	<h1 class="post__title">Add anchors to your section titles</h1>
 
- --><li class="pagination__next">
-		
-			<a href="/page2">Next</a>
-		
-	</li>
-</ul>
-<!-- /.pagination -->
+	<p>It's really good UX practise to add anchors for your section titles. It helps users to link to a part of article. You can see a good example of this in README files on Github. Here's a <a href="https://github.com/Idered/zen-form">sample</a>.</p>
+
+<p>Usualy we link <code>&lt;a&gt;</code> tag to an element using <code>id</code> attribute but this isn't supported by ASP websites. Instead of using <code>id</code>, we can use <code>name</code> attribute:</p>
+
+<pre><code>&lt;a name="about" href="#about"&gt;About&lt;/a&gt;
+</code></pre>
+
+<p>It's a link which points to itself. It's a section title so you also should wrap it in an <code>h2</code> or <code>h3</code> tag.</p>
+
+<p>Optionaly we can add some style for anchor links:</p>
+
+<pre><code>[href^="#"] {
+    position: relative;
+    color: inherit;
+}
+
+[href^="#"]:hover {
+    color: #e14a42;
+}
+
+[href^="#"]:hover:before {
+    content: '#';
+    right: 100%;
+    position: absolute;
+    margin-right: .2em;
+}
+</code></pre>
+
+<p>Check out <a href="http://jsfiddle.net/5HyPp/embedded/result/">demo page</a>.</p>
+
+
+	<p><a href="https://twitter.com/share" class="twitter-share-button" data-text="Add anchors to your section titles">Tweet</a></p>
+
+</article>
 	</div>
 	<!-- /.content -->
 
