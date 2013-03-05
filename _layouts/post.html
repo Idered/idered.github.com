@@ -10,8 +10,18 @@ page-class: page--post
 
 	<hr>
 
-	<p class="post__share">
+	<p class="post__nav">
+
+		{% if page.previous %}
+		<a href="{{page.previous.url}}" class="post__prev hint--right hint--rounded" data-hint="{{page.previous.title | truncate:35}}">Previous post</a>
+		{% endif %}
+
 		<a href="https://twitter.com/share" class="twitter-share-button" data-text="{{page.title}}">Tweet</a>
+
+		{% if page.next %}
+		<a href="{{page.next.url}}" class="post__next hint--left hint--rounded" data-hint="{{page.next.title | truncate:35}}">Next post</a>
+		{% endif %}
+
 	</p>
 
 	<hr>

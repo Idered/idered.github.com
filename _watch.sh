@@ -2,6 +2,4 @@
 
 jekyll
 
-git push
-
 exit 0

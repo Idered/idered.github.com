@@ -11,6 +11,7 @@ author:
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
 	<!-- @see developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching -->
+	<link rel="dns-prefetch" href="//r.twimg.com">
 	<link rel="dns-prefetch" href="//p.twitter.com">
 	<link rel="dns-prefetch" href="//cdn.api.twitter.com">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -23,8 +24,18 @@ author:
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 
 	<link rel="shortcut icon" href="/favicon.gif">
-    <link rel="apple-touch-icon-precomposed" href="/favicon.gif">
-    <meta name="description" content="">
+	<link rel="apple-touch-icon-precomposed" href="/favicon.gif">
+	<meta name="description" content="">
+
+	<link rel="start" href="http://idered.pl/" title="Kasper Mikiewicz Blog">
+
+	<!-- @see developer.mozilla.org/en-US/docs/Link_prefetching_FAQ -->
+	{% if page.previous %}
+	<link rel="prev" title="{{page.previous.title}}" href="{{page.previous.url}}">
+	{% endif %}
+	{% if page.next %}
+	<link rel="next" title="{{page.next.title}}" href="{{page.next.url}}">
+	{% endif %}
 
 	<!-- @see codular.com/google-author-image -->
 	<link rel="author" href="https://plus.google.com/{{page.author.gplus}}/posts">
@@ -68,7 +79,7 @@ author:
 
 			<!-- @see dev.twitter.com/docs/follow-button -->
 			<p>
-				<a href="https://twitter.com/{{page.author.username}}" class="twitter-follow-button" data-show-count="true">Follow @{{page.author.username}}</a>
+				<a href="//twitter.com/{{page.author.username}}" class="twitter-follow-button">Follow @{{page.author.username}}</a>
 			</p>
 		</div>
 
