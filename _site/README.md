@@ -1,0 +1,1 @@
+All code and content remain copyright of Kasper Mikiewicz.
