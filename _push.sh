@@ -9,3 +9,5 @@ git update-ref refs/heads/master $(echo 'add _site!' | git commit-tree dev^{tree
 git checkout master
 
 git push origin master
+
+git checkout dev
