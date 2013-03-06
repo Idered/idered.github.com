@@ -40,4 +40,4 @@ Optionaly we can add some style for anchor links:
 Check out [demo page][2].
 
  [1]: https://github.com/Idered/zen-form
- [2]: http://jsfiddle.net/5HyPp/embedded/result/
+ [2]: /demo/add-anchors-to-your-section-titles

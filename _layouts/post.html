@@ -10,6 +10,15 @@ page-class: page--post
 
 	<hr>
 
+	<ul class="post__tags">
+		<li>Tags:</li>
+		{% for tag in page.tags %}
+		<li><a href="/tag/{{tag}}">#{{tag}}</a></li>
+		{% endfor %}
+	</ul>
+
+	<hr>
+
 	<p class="post__nav">
 
 		{% if page.previous %}
@@ -23,13 +32,5 @@ page-class: page--post
 		{% endif %}
 
 	</p>
-
-	<hr>
-
-	<ul class="post__tags">
-		{% for tag in page.tags %}
-		<li><a href="/tag/{{tag}}">#{{tag}}</a></li>
-		{% endfor %}
-	</ul>
 
 </article>

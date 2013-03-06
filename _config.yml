@@ -4,3 +4,4 @@ markdown: rdiscount
 pygments: true
 permalink: /:year/:month/:title
 paginate: 6
+paginate_path: /page/:num
