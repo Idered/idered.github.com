@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+	<!-- @see developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching -->
+	<link rel="dns-prefetch" href="//r.twimg.com">
+	<link rel="dns-prefetch" href="//p.twitter.com">
+	<link rel="dns-prefetch" href="//cdn.api.twitter.com">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//platform.twitter.com">
+
+	<title>The correct way to handle pre tag</title>
+
+	<link rel="stylesheet" href="/ui/style.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+	<link rel="shortcut icon" href="/favicon.gif">
+	<link rel="apple-touch-icon-precomposed" href="/favicon.gif">
+	<meta name="description" content="">
+
+	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/kaspermikiewicz" title="New posts &ndash; Kasper Mikiewicz">
+
+	<link rel="start" href="http://idered.pl/" title="Kasper Mikiewicz Blog">
+
+	<!-- @see developer.mozilla.org/en-US/docs/Link_prefetching_FAQ -->
+	
+	<link rel="prev" title="Create custom Twitter share button" href="/2012/07/create-custom-twitter-share-button">
+	
+	
+	<link rel="next" title="Better way to add Facebook, Twitter, Google Plus and any other external scripts" href="/2012/07/better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts">
+	
+
+	<!-- @see codular.com/google-author-image -->
+	<link rel="author" href="https://plus.google.com/116964578938339291040/posts">
+
+	<!-- @see ogp.me -->
+	<meta property="og:title" content="The correct way to handle pre tag" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="" />
+	<meta property="og:url" content="/2012/07/the-correct-way-to-handle-pre-tag">
+
+	<!-- @see dev.twitter.com/docs/cards -->
+	<meta property="twitter:title" content="The correct way to handle pre tag">
+	<meta property="twitter:creator" content="@Idered">
+	<meta property="twitter:card" content="summary">
+	<meta property="twitter:description" content="">
+	<meta property="twitter:url" content="/2012/07/the-correct-way-to-handle-pre-tag">
+</head>
+<body class="page--post">
+
+
+<div class="main wrapper">
+
+	<aside class="sidebar">
+
+		<a href="/" rel="index" class="site-name fx--opacity">
+			Kasper.<span>Mikiewicz</span>
+		</a>
+		<!-- /.site-name -->
+
+		<ul class="nav nav--stacked site-nav">
+			<li class="site-nav__about"><a href="/about/">About</a></li>
+			<li class="site-nav__projects"><a href="/projects/">Projects</a></li>
+			<li class="site-nav__contact"><a href="/contact/">Contact</a></li>
+		</ul>
+		<!-- /.nav.site-nav -->
+
+		<div class="sidebar__about">
+			<p>
+				Hello, I’m Kasper. I’m 21 years old <b>designer</b>, <b>developer</b> and <b>writer</b> from Poland. I like to
+				<a href="http://twitter.com/Idered" class="hint--top hint--rounded" data-hint="Twitter">tweet</a>,
+				<a href="/archive/" class="hint--top hint--rounded" data-hint="Blog archive">write</a>,
+				<a href="http://dribbble.com/Idered" class="hint--top hint--rounded" data-hint="Dribbble">design</a> and
+				<a href="http://github.com/Idered" class="hint--top hint--rounded" data-hint="GitHub">share my code</a>.
+			</p>
+
+			<!-- @see dev.twitter.com/docs/follow-button -->
+			<p>
+				<a href="//twitter.com/Idered" class="twitter-follow-button">Follow @Idered</a>
+			</p>
+		</div>
+
+		<p class="footer">
+			2013 &copy; <a href="http://twitter.com/Idered">Kasper Mikiewicz</a>. Grab <a href="http://feeds.feedburner.com/kaspermikiewicz">RSS</a>. View <a href="https://github.com/Idered/idered.github.com/tree/dev">source</a>.
+		</p>
+
+	</aside>
+	<!-- /.sidebar -->
+
+	<div class="content">
+		<article class="post">
+
+	<h1 class="post__title">The correct way to handle pre tag</h1>
+
+	<p>There are two things that we have to remember when we want embed some code on our website: <strong>it should be highlighted</strong> and <strong>easy to copy</strong>.</p>
+
+<h2>Adding code</h2>
+
+<p>To add code, we'll use this structure:</p>
+
+<pre><code>&lt;pre class="prettyprint"&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+
+<h2>Code highlighting</h2>
+
+<p>This is easy, we can use <a href="http://code.google.com/p/google-code-prettify/">Google Code Prettify</a>, it's easy to setup and quite universal. We just have to add some CSS and JavaScript, it's all well described <a href="http://google-code-prettify.googlecode.com/svn/trunk/README.html">here</a>.</p>
+
+<h2>Adding "copy" functionality</h2>
+
+<p>The idea is simple:</p>
+
+<blockquote><p>When user clicks on code then it is replaced with textarea where the code itself is added and selected. When the textarea loses focus, it is reverted to original state.</p></blockquote>
+
+<p>To accomplish this, we'll use <a href="http://jquery.com">jQuery</a>. Okey, now let's write some JavaScript.</p>
+
+<pre><code>$("pre").delegate("code", "click", function() {
+    // Code
+});
+</code></pre>
+
+<p>Each time we click on code tag that is in pre tag, the function is called</p>
+
+<pre><code>var $code = $(this),
+    $pre  = $(this).parent(),
+    $clone= $code.clone(),
+    text  = $code.text(),
+    height= $code.outerHeight();
+</code></pre>
+
+<p>Now we're just setting some variables</p>
+
+<pre><code>$code.replaceWith($('&lt;textarea/&gt;'));
+
+var $textarea = $pre.children('textarea');
+</code></pre>
+
+<p>We're replacing code tag with textarea and add it to variable</p>
+
+<pre><code>$textarea.height(height).val(text).select();
+</code></pre>
+
+<p>We're setting height for textarea as it was for code tag, add text and select it.</p>
+
+<pre><code>$textarea.one('blur', function() {
+  $textarea.replaceWith($clone);
+});
+</code></pre>
+
+<p>When textarea loses it focus, everything is reverted back</p>
+
+<p>At the end, code will look like this:</p>
+
+<pre><code>$("pre").delegate("code", "click", function() {
+    var $code = $(this),
+        $pre  = $(this).parent(),
+        $clone= $code.clone(),
+        text  = $code.text(),
+        height= $code.outerHeight();
+
+    $code.replaceWith($('&lt;textarea/&gt;'));
+
+    var $textarea = $pre.children('textarea');
+
+    $textarea.height(height).val(text).select();
+    $textarea.one('blur', function() {
+        $textarea.replaceWith($clone);
+    });
+});
+</code></pre>
+
+<p>And that's all, with this code you can add really great user experience. I've used this technique on this blog so you can test it as you read this post.</p>
+
+
+	<hr>
+
+	<ul class="post__tags">
+		<li>Tags:</li>
+		
+		<li><a href="/tag/javascript">#javascript</a></li>
+		
+		<li><a href="/tag/snippet">#snippet</a></li>
+		
+	</ul>
+
+	<hr>
+
+	<p class="post__nav">
+
+		
+		<a href="/2012/07/create-custom-twitter-share-button" class="post__prev hint--right hint--rounded" data-hint="Create custom Twitter share button">Previous post</a>
+		
+
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="The correct way to handle pre tag">Tweet</a>
+
+		
+		<a href="/2012/07/better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts" class="post__next hint--left hint--rounded" data-hint="Better way to add Facebook, Twit...">Next post</a>
+		
+
+	</p>
+
+</article>
+	</div>
+	<!-- /.content -->
+
+</div>
+<!-- /.main  -->
+
+<script>
+	var scripts = {
+		'twitter-wjs'   : '//platform.twitter.com/widgets.js',
+		'analytics'     : ('https:'==location.protocol?'//ssl':'//www') + '.google-analytics.com/ga.js'
+	}, script, _gaq=[['_setAccount','UA-18366146-6'],['_trackPageview']];
+
+	for (var id in scripts) {
+		script = document.createElement('script'); script.src = scripts[id];
+		script.id = id;script.type = 'text/javascript'; script.async = true;
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+	}
+</script>
+<script src="/ui/js/jquery.js"></script>
+<script src="/ui/js/plugins.js"></script>
+<script src="/ui/js/script.js"></script>
+</body>
+</html>
