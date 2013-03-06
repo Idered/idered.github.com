@@ -1,0 +1,40 @@
+body {
+    font: 300 .95em/1.5 "Open Sans", sans-serif;
+	color: #333;
+    max-width: 42em;
+    margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+	font-family: Merriweather, serif;
+    font-weight: bold;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+[href^="#"] {
+	position: relative;
+	color: inherit;
+}
+
+[href^="#"]:hover {
+	color: #e14a42;
+}
+
+[href^="#"]:hover:before {
+	content: '#';
+	right: 100%;
+	position: absolute;
+	margin-right: .2em;
+}

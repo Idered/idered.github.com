@@ -255,7 +255,13 @@ a:hover {
 /*----------------------------------------------------------------------------*\
 	$LISTS
 \*----------------------------------------------------------------------------*/
+.list--inline {
+	padding-left: 0;
+}
 
+.list--inline li {
+	display: inline-block;
+}
 
 /*----------------------------------------------------------------------------*\
 	$FORMS
@@ -330,10 +336,9 @@ h4, h5, h6 {
 	font-weight: normal;
 }
 
-h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
-}
+h1 { font-size:   2em; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.2em; }
 
 
 /*----------------------------------------------------------------------------*\
@@ -595,7 +600,6 @@ ol.linenums li {
 /**
  * About section
  */
-
 .sidebar__about a {
 	font-weight: bold;
 }
@@ -717,6 +721,10 @@ ol.linenums li {
 .post__tags {
 	list-style-type: none;
 	padding-left: 0;
+}
+
+.post__tags > :first-child {
+	color: #999;
 }
 
 .post__tags li {
@@ -871,6 +879,13 @@ ol.linenums li {
 }
 
 @media (max-width: 480px) {
+
+	.hint:before,
+	.hint:after,
+	[data-hint]:before,
+	[data-hint]:after {
+		content: none;
+	}
 
 	/* Post
 	\*------------------------------------*/
