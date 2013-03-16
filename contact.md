@@ -7,7 +7,7 @@ permalink: /contact/
 
 # Contact
 
-Hey, I'm curently not available for any freelance project but if you need, you can drop me an [email][1].
+Hey, I'm curently **not available** for any freelance project but if you need something, shot me an [email][1].
 
 You can also [tweet][2] to me on twitter.
 
