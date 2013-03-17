@@ -625,6 +625,7 @@ ol.linenums li {
 \*------------------------------------*/
 .footer {
 	border-top: 1px solid #dfdfdf;
+	color: #999;
 	margin: 0 -21px;
 	padding: 1.5em 20px;
 	font-size: .75em;

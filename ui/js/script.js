@@ -149,7 +149,6 @@ var App = App || (function($) {
 
 				$code.replaceWith($('<textarea/>'));
 
-
 				$this.children('textarea').one('blur', function() {
 					$(this).replaceWith($clone);
 				}).height(height).val(text).select();
