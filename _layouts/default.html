@@ -83,9 +83,10 @@ author:
 				<a href="http://github.com/Idered" class="hint--top hint--rounded" data-hint="GitHub">share my code</a>.
 			</p>
 
-			<!-- @see dev.twitter.com/docs/follow-button -->
-			<p>
-				<a href="//twitter.com/{{ page.author.username }}" class="twitter-follow-button">Follow @{{ page.author.username }}</a>
+			<p class="twitter-follow">
+				<!-- @see dev.twitter.com/docs/follow-button -->
+				<a href="//twitter.com/{{ page.author.username }}" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @{{ page.author.username }}</a>
+				<a href="//twitter.com/{{ page.author.username }}" class="twitter-follow__button"><i class="s s--twitter"></i>Follow on Twiter</a>
 			</p>
 		</div>
 

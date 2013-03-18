@@ -83,10 +83,24 @@ var App = App || (function($) {
 
 			Utils.settings.init();
 
+			Public.twitterFollow();
 			Public.responsive();
 			Public.codeHelpers();
 
 		}, // init
+
+		/**
+		 * Custom twitter follow button
+		 */
+		twitterFollow: function() {
+			var twitterButton = $('.twitter-follow__button'),
+			    detectFollow = setInterval(function () {
+			        if ($(document.activeElement).hasClass('twitter-follow-button')) {
+			            twitterButton.text('Thanks!').addClass('active');
+			            clearInterval(detectFollow);
+			        }
+			    }, 250);
+		}, // twitterFollow
 
 		/**
 		 * Move some elements from sidebar to the bottom of page
