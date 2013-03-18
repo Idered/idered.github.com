@@ -636,7 +636,7 @@ ol.linenums li {
 }
 
 .sidebar__about a[href*="twitter.com"] {
-	/* color: #00a0d1; */
+	color: #00a0d1;
 }
 
 .sidebar__about a[href*="dribbble.com"] {
@@ -685,7 +685,7 @@ ol.linenums li {
 	margin-right: 4px;
 }
 
-.twitter-follow__button.active,
+.twitter-follow .twitter-follow__button.active,
 .twitter-follow iframe:hover + .twitter-follow__button {
     display: inline-block;
     background: #00a0d1;
