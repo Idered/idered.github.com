@@ -1,7 +1,7 @@
 ---
 date: 2012-07-24 14:50:02
 layout: post
-slug: better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts
+slug: better-way-to-add-facebook-twitter-google-plus-and-any-other-external-scripts
 title: Better way to add Facebook, Twitter, Google Plus and any other external scripts
 categories:
 - Web Development
