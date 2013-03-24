@@ -20,6 +20,16 @@ permalink: /projects/
 	</li>
 	<li>
 		<figure>
+			<a href="http://idered.github.com/esuna" target="_blank">
+				<img src="/media/projects/esuna.png" alt="Preview image of Esuna framework">
+				<span class="project__preview-bg"></span>
+				<span class="project__preview-link">View project</span>
+			</a>
+			<figcaption>Esuna - Classy Front-End Framework</figcaption>
+		</figure>
+	</li>
+	<li>
+		<figure>
 			<a href="http://idered.github.com/zen-form" target="_blank">
 				<img src="/media/projects/zen-form.png" alt="Preview image of Zen Forms plugin">
 				<span class="project__preview-bg"></span>
