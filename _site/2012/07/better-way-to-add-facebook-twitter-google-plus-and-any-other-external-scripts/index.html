@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+	<!-- @see developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching -->
+	<link rel="dns-prefetch" href="//r.twimg.com">
+	<link rel="dns-prefetch" href="//p.twitter.com">
+	<link rel="dns-prefetch" href="//cdn.api.twitter.com">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//platform.twitter.com">
+
+	<title>Better way to add Facebook, Twitter, Google Plus and any other external scripts</title>
+
+	<link rel="stylesheet" href="/ui/style.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800' rel='stylesheet' type='text/css'>
+
+	<link rel="shortcut icon" href="/favicon.gif">
+	<link rel="apple-touch-icon-precomposed" href="/favicon.gif">
+
+	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/kaspermikiewicz" title="New posts &ndash; Kasper Mikiewicz">
+
+	<link rel="start" href="http://idered.pl/" title="Kasper Mikiewicz Blog">
+
+	<!-- @see developer.mozilla.org/en-US/docs/Link_prefetching_FAQ -->
+	
+	<link rel="prev" title="The correct way to handle pre tag" href="/2012/07/the-correct-way-to-handle-pre-tag">
+	
+	
+	<link rel="next" title="Better way to add Facebook, Twitter, Google Plus and any other external scripts" href="/2012/07/better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts">
+	
+
+	<!-- @see codular.com/google-author-image -->
+	<link rel="author" href="https://plus.google.com/116964578938339291040/posts">
+
+	<!-- @see ogp.me -->
+	<meta property="og:title" content="Better way to add Facebook, Twitter, Google Plus and any other external scripts" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="" />
+	<meta property="og:url" content="/2012/07/better-way-to-add-facebook-twitter-google-plus-and-any-other-external-scripts">
+
+	<!-- @see dev.twitter.com/docs/cards -->
+	<meta property="twitter:title" content="Better way to add Facebook, Twitter, Google Plus and any other external scripts">
+	<meta property="twitter:creator" content="@Idered">
+	<meta property="twitter:card" content="summary">
+	<meta property="twitter:description" content="">
+	<meta property="twitter:url" content="/2012/07/better-way-to-add-facebook-twitter-google-plus-and-any-other-external-scripts">
+</head>
+<body class="page--post">
+
+
+<div class="main wrapper">
+
+	<aside class="sidebar">
+
+		<a href="/" rel="index" class="site-name fx--opacity">
+			Kasper.
+		</a>
+		<!-- /.site-name -->
+
+		<ul class="nav nav--stacked site-nav">
+			<li class="site-nav__archive"><a href="/archive/">Archive</a></li>
+			<li class="site-nav__projects"><a href="/projects/">Projects</a></li>
+			<li class="site-nav__contact"><a href="/contact/">Contact</a></li>
+		</ul>
+		<!-- /.nav.site-nav -->
+
+		<div class="sidebar__about">
+			<p>
+				Hello, I’m Kasper. I’m 21 years old <b>developer</b>, <b>designer</b> and <b>writer</b> from Poland. I like to
+				<a href="http://twitter.com/Idered" class="hint--top hint--rounded" data-hint="Twitter">tweet</a>,
+				<a href="/archive/" class="hint--top hint--rounded" data-hint="Blog archive">write</a>,
+				<a href="http://dribbble.com/Idered" class="hint--top hint--rounded" data-hint="Dribbble">design</a> and
+				<a href="http://github.com/Idered" class="hint--top hint--rounded" data-hint="GitHub">share my code</a>.
+			</p>
+
+			<p class="twitter-follow">
+				<!-- @see dev.twitter.com/docs/follow-button -->
+				<a href="//twitter.com/Idered" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @Idered</a>
+				<a href="//twitter.com/Idered" class="twitter-follow__button"><i class="s s--twitter"></i>Follow on Twiter</a>
+			</p>
+		</div>
+
+		<p class="footer">
+			2013 &copy; <a href="http://twitter.com/Idered">Kasper Mikiewicz</a>. Grab <a href="http://feeds.uri.lv/kaspermikiewicz">RSS</a>. View <a href="https://github.com/Idered/idered.github.com/tree/dev">source</a>.
+		</p>
+
+	</aside>
+	<!-- /.sidebar -->
+
+	<div class="content">
+		<article class="post">
+
+	<h1 class="post__title">Better way to add Facebook, Twitter, Google Plus and any other external scripts</h1>
+
+	<p>Every time I've to embed facebook, twitter or any other external script on website, it takes longer than it should and my code get messy. But no longer, with this code it's easier to embed scripts from external source.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+  var scripts = {
+    'facebook-jssdk': '//connect.facebook.net/en_US/all.js#xfbml=1',
+    'googleplus'    : 'https://apis.google.com/js/plusone.js',
+    'twitter-wjs'   : '//platform.twitter.com/widgets.js',
+    'analytics'     : ('https:'==location.protocol?'//ssl':'//www') + '.google-analytics.com/ga.js'
+  }, script, _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+
+  for (var id in scripts) {
+    script = document.createElement('script'); script.src = scripts[id];
+    script.id = id;script.type = 'text/javascript'; script.async = true;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+  }
+&lt;/script&gt;
+</code></pre>
+
+<p>Although it's just a loop, it's really useful and helps to manage all those scripts.</p>
+
+<p><strong>Don't forget to add <code>&lt;div id="fb-root"&gt;&lt;/div&gt;</code> to your markup when you're using facebook.</strong></p>
+
+
+	<hr>
+
+	<ul class="post__tags">
+		<li>Tags:</li>
+		
+		<li><a href="/tag/javascript">#javascript</a></li>
+		
+		<li><a href="/tag/snippet">#snippet</a></li>
+		
+	</ul>
+
+	<hr>
+
+	<p class="post__nav">
+
+		
+		<a href="/2012/07/the-correct-way-to-handle-pre-tag" class="post__prev hint--right hint--rounded" data-hint="The correct way to handle pre tag">Previous post</a>
+		
+
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="Better way to add Facebook, Twitter, Google Plus and any other external scripts">Tweet</a>
+
+		
+		<a href="/2012/07/better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts" class="post__next hint--left hint--rounded" data-hint="Better way to add Facebook, Twit...">Next post</a>
+		
+
+	</p>
+
+</article>
+	</div>
+	<!-- /.content -->
+
+</div>
+<!-- /.main  -->
+
+<script>
+	var scripts = {
+		'twitter-wjs'   : '//platform.twitter.com/widgets.js',
+		'analytics'     : ('https:'==location.protocol?'//ssl':'//www') + '.google-analytics.com/ga.js'
+	}, script, _gaq=[['_setAccount','UA-18366146-1'],['_trackPageview']];
+
+	for (var id in scripts) {
+		script = document.createElement('script'); script.src = scripts[id];
+		script.id = id;script.type = 'text/javascript'; script.async = true;
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+	}
+</script>
+<script src="/ui/js/jquery.js"></script>
+<script src="/ui/js/plugins.js"></script>
+<script src="/ui/js/script.js"></script>
+</body>
+</html>
