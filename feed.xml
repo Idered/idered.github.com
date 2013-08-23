@@ -3,7 +3,7 @@
 	<title>Kasper Mikiewicz Blog</title>
 	<link href="http://idered.pl/feed.xml" rel="self"/>
 	<link href="http://idered.pl/"/>
-	<updated>2013-08-23T02:02:53+02:00</updated>
+	<updated>2013-08-23T02:05:56+02:00</updated>
 	<id>http://idered.pl/</id>
 	<author>
 		<name>Kasper Mikiewicz</name>
@@ -11,9 +11,9 @@
 	</author>
 	
 	<entry>
-		<title>Coding Performance</title>
+		<title>Coding performance</title>
 		<link href="http://idered.pl/2013/08/coding-performance"/>
-		<updated>2013-08-23T00:00:00+02:00</updated>
+		<updated>2013-08-23T02:05:14+02:00</updated>
 		<id>http://idered.pl/2013/08/coding-performance</id>
 		
 	</entry>
