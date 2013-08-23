@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+	<!-- @see developer.mozilla.org/en-US/docs/Controlling_DNS_prefetching -->
+	<link rel="dns-prefetch" href="//r.twimg.com">
+	<link rel="dns-prefetch" href="//p.twitter.com">
+	<link rel="dns-prefetch" href="//cdn.api.twitter.com">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//platform.twitter.com">
+
+	<title>Coding performance</title>
+
+	<link rel="stylesheet" href="/ui/style.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800' rel='stylesheet' type='text/css'>
+
+	<link rel="shortcut icon" href="/favicon.gif">
+	<link rel="apple-touch-icon-precomposed" href="/favicon.gif">
+
+	<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/kaspermikiewicz" title="New posts &ndash; Kasper Mikiewicz">
+
+	<link rel="start" href="http://idered.pl/" title="Kasper Mikiewicz Blog">
+
+	<!-- @see developer.mozilla.org/en-US/docs/Link_prefetching_FAQ -->
+	
+	<link rel="prev" title="Grouped logging" href="/2013/02/grouped-logging">
+	
+	
+
+	<!-- @see codular.com/google-author-image -->
+	<link rel="author" href="https://plus.google.com/116964578938339291040/posts">
+
+	<!-- @see ogp.me -->
+	<meta property="og:title" content="Coding performance" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="" />
+	<meta property="og:url" content="/2013/08/coding-performance">
+
+	<!-- @see dev.twitter.com/docs/cards -->
+	<meta property="twitter:title" content="Coding performance">
+	<meta property="twitter:creator" content="@Idered">
+	<meta property="twitter:card" content="summary">
+	<meta property="twitter:description" content="">
+	<meta property="twitter:url" content="/2013/08/coding-performance">
+</head>
+<body class="page--post">
+
+
+<div class="main wrapper">
+
+	<aside class="sidebar">
+
+		<a href="/" rel="index" class="site-name fx--opacity">
+			Kasper.
+		</a>
+		<!-- /.site-name -->
+
+		<ul class="nav nav--stacked site-nav">
+			<li class="site-nav__archive"><a href="/archive/">Archive</a></li>
+			<li class="site-nav__projects"><a href="/projects/">Projects</a></li>
+			<li class="site-nav__contact"><a href="/contact/">Contact</a></li>
+		</ul>
+		<!-- /.nav.site-nav -->
+
+		<div class="sidebar__about">
+			<p>
+				Hello, I’m Kasper. I’m 21 years old <b>developer</b>, <b>designer</b> and <b>writer</b> from Poland. I like to
+				<a href="http://twitter.com/Idered" class="hint--top hint--rounded" data-hint="Twitter">tweet</a>,
+				<a href="/archive/" class="hint--top hint--rounded" data-hint="Blog archive">write</a>,
+				<a href="http://dribbble.com/Idered" class="hint--top hint--rounded" data-hint="Dribbble">design</a> and
+				<a href="http://github.com/Idered" class="hint--top hint--rounded" data-hint="GitHub">share my code</a>.
+			</p>
+
+			<p class="twitter-follow">
+				<!-- @see dev.twitter.com/docs/follow-button -->
+				<a href="//twitter.com/Idered" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @Idered</a>
+				<a href="//twitter.com/Idered" class="twitter-follow__button"><i class="s s--twitter"></i>Follow on Twiter</a>
+			</p>
+		</div>
+
+		<p class="footer">
+			2013 &copy; <a href="http://twitter.com/Idered">Kasper Mikiewicz</a>. Grab <a href="http://feeds.uri.lv/kaspermikiewicz">RSS</a>. View <a href="https://github.com/Idered/idered.github.com/tree/dev">source</a>.
+		</p>
+
+	</aside>
+	<!-- /.sidebar -->
+
+	<div class="content">
+		<article class="post">
+
+	<h1 class="post__title">Coding performance</h1>
+
+	<p>Today I want to share with you some tips about coding performance and workflow that might improve your efficiency. Sometimes it’s not that easy to meet deadlines but you should never give up, just brace yourself and stop thinking about useless things.</p>
+
+<h1>State of mind</h1>
+
+<p>You need to keep your focus. This is probably the most important thing in developer’s job and it’s not easy to achieve.</p>
+
+<p>Things that might help you:</p>
+
+<ul>
+<li>Keep your workplace clean, remove useless and eye-catching things;</li>
+<li>Hide apps that aren't related to coding from your taskbar.  Here’re apps from my taskbar: Console2, WinSCP, Sublime Text 3, Google Chrome and Photoshop;</li>
+<li>Hide bookmarks from browser;</li>
+<li>Work on one thing at a time.</li>
+</ul>
+
+
+<h1>Tools</h1>
+
+<p>Without proper tools you can’t do too much, so here’re my 4 favorite  tools that will reduce coding time:</p>
+
+<ul>
+<li><a href="http://www.sublimetext.com/">Sublime Text</a> - you probably know(use) this one so I’ll just say that it’s an awesome code editor with many plugins available.</li>
+<li><a href="http://emmet.io/">Emmet</a> - it's an abbreviation expander for you editor that allows you to do some really funky shit. Go play with it <a href="http://docs.emmet.io/">here</a></li>
+<li><a href="http://livestyle.emmet.io/">Emmet LiveStyle</a> - live bi-directional (editor↔browser) CSS editing of new generation.</li>
+<li><a href="http://extractcss.com/index.html">extractCSS</a> - this helps you extract css selectors from html generated by Emmet plugin.</li>
+</ul>
+
+
+<h1>Workflow</h1>
+
+<p>Assuming that you have installed all mentioned tools and you’re focused, you can start coding. It goes like this:</p>
+
+<ul>
+<li>Write and extend css abbreviation, sample
+  <code>ul.nav&gt;li.nav__item*4&gt;a{Item $}</code></li>
+<li>Copy it to extractCSS service and get css selectors</li>
+<li>Save your css and html files and open them in browser</li>
+<li>Open developer tools, go to LiveStyle tab and turn it on</li>
+<li>Happily change css and watch how it changes in browser without saving. You also can change css in developer tools, it will be added to your css file.</li>
+</ul>
+
+
+
+	<hr>
+
+	<ul class="post__tags">
+		<li>Tags:</li>
+		
+		<li><a href="/tag/workflow">#workflow</a></li>
+		
+		<li><a href="/tag/html">#html</a></li>
+		
+		<li><a href="/tag/css">#css</a></li>
+		
+	</ul>
+
+	<hr>
+
+	<p class="post__nav">
+
+		
+		<a href="/2013/02/grouped-logging" class="post__prev hint--right hint--rounded" data-hint="Grouped logging">Previous post</a>
+		
+
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="Coding performance">Tweet</a>
+
+		
+
+	</p>
+
+</article>
+	</div>
+	<!-- /.content -->
+
+</div>
+<!-- /.main  -->
+
+<script>
+	var scripts = {
+		'twitter-wjs'   : '//platform.twitter.com/widgets.js',
+		'analytics'     : ('https:'==location.protocol?'//ssl':'//www') + '.google-analytics.com/ga.js'
+	}, script, _gaq=[['_setAccount','UA-18366146-1'],['_trackPageview']];
+
+	for (var id in scripts) {
+		script = document.createElement('script'); script.src = scripts[id];
+		script.id = id;script.type = 'text/javascript'; script.async = true;
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+	}
+</script>
+<script src="/ui/js/jquery.js"></script>
+<script src="/ui/js/plugins.js"></script>
+<script src="/ui/js/script.js"></script>
+</body>
+</html>
