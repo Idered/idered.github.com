@@ -3,12 +3,20 @@
 	<title>Kasper Mikiewicz Blog</title>
 	<link href="http://idered.pl/feed.xml" rel="self"/>
 	<link href="http://idered.pl/"/>
-	<updated>2013-03-27T12:06:40+01:00</updated>
+	<updated>2013-08-23T02:02:53+02:00</updated>
 	<id>http://idered.pl/</id>
 	<author>
 		<name>Kasper Mikiewicz</name>
 		<email>idered@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Coding Performance</title>
+		<link href="http://idered.pl/2013/08/coding-performance"/>
+		<updated>2013-08-23T00:00:00+02:00</updated>
+		<id>http://idered.pl/2013/08/coding-performance</id>
+		
+	</entry>
 	
 	<entry>
 		<title>Grouped logging</title>
@@ -39,14 +47,6 @@
 		<link href="http://idered.pl/2012/11/better-usage-of-console.log"/>
 		<updated>2012-11-27T01:16:02+01:00</updated>
 		<id>http://idered.pl/2012/11/better-usage-of-console.log</id>
-		
-	</entry>
-	
-	<entry>
-		<title>Better way to add Facebook, Twitter, Google Plus and any other external scripts</title>
-		<link href="http://idered.pl/2012/07/better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts"/>
-		<updated>2012-07-24T14:50:02+02:00</updated>
-		<id>http://idered.pl/2012/07/better-way-to-add-facebook-twitter-google-plus-google-analytics-scripts</id>
 		
 	</entry>
 	
