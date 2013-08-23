@@ -1,3 +1,17 @@
+---
+date: 2013-08-23 02:05:14
+layout: post
+slug: coding-performance
+title: Coding performance
+categories:
+- Web Development
+tags:
+- workflow
+- html
+- css
+meta:
+---
+
 Today I want to share with you some tips about coding performance and workflow that might improve your efficiency. Sometimes it’s not that easy to meet deadlines but you should never give up, just brace yourself and stop thinking about useless things.
 
 # State of mind
